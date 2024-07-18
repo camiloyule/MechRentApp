@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MechRent.Core\MechRent.Core.csproj" />
+    <ProjectReference Include="..\MechRent.Infrastructure\MechRent.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

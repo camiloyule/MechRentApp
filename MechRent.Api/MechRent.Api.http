@@ -1,0 +1,6 @@
+@MechRent.Api_HostAddress = http://localhost:5078
+
+GET {{MechRent.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
