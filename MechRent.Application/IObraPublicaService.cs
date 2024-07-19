@@ -10,9 +10,9 @@ namespace MechRent.Application
     {
         Task<IEnumerable<ObraPublicaDto>> GetContractsWithEstimatedHoursAsync();
         Task<IEnumerable<ObraPublicaDto>> GetContractsWithRentedMachinesDetailsAsync();
-        Task AddRentedHoursAsync(int nombreObra, int nombreMaquina, int hours);
-        Task<double> CalculateTotalValueAsync(int nombreObra, int nombreMaquina);
+        Task AddRentedHoursAsync(int obraId, int maquinaId, int horas);
+        Task<double> CalculateTotalValueAsync(int obraId, int maquinaId);
         Task<IEnumerable<MaquinaDto>> GetMachinesNeedingMaintenanceAsync();
-        Task AddNewMachineAsync(MaquinaDto MachinDto);
+        Task AddNewMachineAsync(MaquinaDto maquinaDto);
     }
 }

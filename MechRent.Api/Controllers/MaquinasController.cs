@@ -18,8 +18,8 @@ namespace MechRent.Api.Controllers
         [HttpGet("maintenance")]
         public async Task<ActionResult<IEnumerable<MaquinaDto>>> GetMachinesNeedingMaintenance()
         {
-            var machines = await _obraPublicaService.GetMachinesNeedingMaintenanceAsync();
-            return Ok(machines);
+            var maquinas = await _obraPublicaService.GetMachinesNeedingMaintenanceAsync();
+            return Ok(maquinas);
         }
 
         [HttpPost]

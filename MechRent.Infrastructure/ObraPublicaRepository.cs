@@ -16,7 +16,7 @@ namespace MechRent.Infrastructure
         {
             return await _context.ObrasPublicas.
                 Include(c => c.estimacionMaquinas)
-                .ThenInclude(cm => cm.Maquina)
+                .ThenInclude(cm => cm.maquina)
                 .ToListAsync();
         }
       
