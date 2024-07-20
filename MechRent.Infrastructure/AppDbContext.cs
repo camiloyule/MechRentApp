@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using MechRent.Core.Models;
+using System.Reflection.PortableExecutable;
 
 
 namespace MechRent.Infrastructure
@@ -33,6 +34,19 @@ namespace MechRent.Infrastructure
                 .HasOne(cm => cm.maquina)
                 .WithMany()
                 .HasForeignKey(cm => cm.maquinaId);
+        }
+
+        public static void SeedData(AppDbContext context)
+        {
+            if (!context.Maquinas.Any())
+            {
+                context.Maquinas.AddRange(
+                    new Maquina { nombreMaquina = "Caterpillar 320d2", precioHora = 200000, frecuenciaMantenimiento = 1440 },
+                    new Maquina { nombreMaquina = "Hyundai Hx340sl", precioHora = 450000, frecuenciaMantenimiento = 1080 },
+                    new Maquina { nombreMaquina = "Hitachi Zx 200-6", precioHora = 300000, frecuenciaMantenimiento = 720 }
+                );
+                context.SaveChanges();
+            }
         }
 
     }
