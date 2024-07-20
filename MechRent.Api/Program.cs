@@ -9,23 +9,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-//SqlConnectionStringBuilder tocnnect = new SqlConnectionStringBuilder();
-//tocnnect.DataSource = "(localdb)\\mssqllocaldb";
-//tocnnect.InitialCatalog = "MerchRendDb";
-//tocnnect.UserID = "test2";
-//tocnnect.Password = "123456789000000";
-//Console.WriteLine(tocnnect.ConnectionString);
+
 
 // Register DbContext
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-//builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer((builder.Configuration.GetConnectionString("DefaultConnection"))));
-//builder.Services.AddDbContext<AppDbContext>(options =>
-//  options.UseSqlServer(tocnnect.ConnectionString));
-//SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-
-
-
 
 
 // Register repositories
