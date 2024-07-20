@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MechRent.Application;
+using MechRent.Application.DTOs;
+using MechRent.Application.Services;
 
 namespace MechRent.Api.Controllers
 {
@@ -25,6 +26,10 @@ namespace MechRent.Api.Controllers
         [HttpPost]
         public async Task<ActionResult> AddNewMachine([FromBody] MaquinaDto machineDto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             await _obraPublicaService.AddNewMachineAsync(machineDto);
             return CreatedAtAction(nameof(GetMachinesNeedingMaintenance), null);
         }

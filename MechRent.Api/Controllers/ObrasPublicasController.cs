@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MechRent.Application;
+using MechRent.Application.DTOs;
+using MechRent.Application.Services;
 
 namespace MechRent.Api.Controllers
 {

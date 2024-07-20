@@ -1,7 +1,7 @@
 using MechRent.Infrastructure;
 using Microsoft.EntityFrameworkCore;
-using MechRent.Application;
 using Microsoft.Data.SqlClient;
+using MechRent.Application.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MechRent.Application
+namespace MechRent.Application.DTOs
 {
     public class MaquinaDto
     {

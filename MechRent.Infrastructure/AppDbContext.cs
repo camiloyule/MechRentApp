@@ -41,9 +41,9 @@ namespace MechRent.Infrastructure
             if (!context.Maquinas.Any())
             {
                 context.Maquinas.AddRange(
-                    new Maquina { nombreMaquina = "Caterpillar 320d2", precioHora = 200000, frecuenciaMantenimiento = 1440 },
-                    new Maquina { nombreMaquina = "Hyundai Hx340sl", precioHora = 450000, frecuenciaMantenimiento = 1080 },
-                    new Maquina { nombreMaquina = "Hitachi Zx 200-6", precioHora = 300000, frecuenciaMantenimiento = 720 }
+                    new Maquina { nombreMaquina = "Caterpillar 320d2", description="heavy 1", precioHora = 200000, frecuenciaMantenimiento = 1440 },
+                    new Maquina { nombreMaquina = "Hyundai Hx340sl", description = "heavy 2", precioHora = 450000, frecuenciaMantenimiento = 1080 },
+                    new Maquina { nombreMaquina = "Hitachi Zx 200-6", description = "heavy 3", precioHora = 300000, frecuenciaMantenimiento = 720 }
                 );
                 context.SaveChanges();
             }

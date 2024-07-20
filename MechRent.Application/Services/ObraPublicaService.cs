@@ -5,18 +5,19 @@ using System.Linq;
 using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
+using MechRent.Application.DTOs;
 using MechRent.Core;
 using MechRent.Core.Models;
 using MechRent.Infrastructure;
 
 
-namespace MechRent.Application
+namespace MechRent.Application.Services
 {
     public class ObraPublicaService : IObraPublicaService
     {
         private readonly IObraPublicaRepository _obraPublicaRepository;
         private readonly IMaquinaRepository _maquinaRepository;
-        public ObraPublicaService( IObraPublicaRepository obraPublicaRepository, IMaquinaRepository maquinaRepository)
+        public ObraPublicaService(IObraPublicaRepository obraPublicaRepository, IMaquinaRepository maquinaRepository)
         {
             _obraPublicaRepository = obraPublicaRepository;
             _maquinaRepository = maquinaRepository;
@@ -50,22 +51,22 @@ namespace MechRent.Application
 
         public async Task<double> CalculateTotalValueAsync(int obraId, int maquinaId)
         {
-            
+
             var obraPublica = await _obraPublicaRepository.GetByIdAsync(obraId);
             var estimacionMaquina = obraPublica.estimacionMaquinas.FirstOrDefault(cm => cm.id == maquinaId);
 
-            if (estimacionMaquina == null )
+            if (estimacionMaquina == null)
             {
                 throw new ArgumentException("Maquina no encontrada en la obra publica");
             }
 
-            
+
             var maquina = await _maquinaRepository.GetByIdAsync(maquinaId);
             return estimacionMaquina.horas * maquina.precioHora;
-            
-            
-            
-            
+
+
+
+
         }
 
         public async Task<IEnumerable<MaquinaDto>> GetMachinesNeedingMaintenanceAsync()
@@ -76,10 +77,15 @@ namespace MechRent.Application
 
         public async Task AddNewMachineAsync(MaquinaDto maquinaDto)
         {
+            if (string.IsNullOrWhiteSpace(maquinaDto.description))
+            {
+                throw new ArgumentException("Description cannot be null or empty");
+            }
             var maquina = new Maquina
             {
                 nombreMaquina = maquinaDto.nombreMaquina,
                 precioHora = maquinaDto.precioHora,
+                description = maquinaDto.description,
                 frecuenciaMantenimiento = maquinaDto.frecuenciaMantenimiento
             };
 
@@ -117,5 +123,5 @@ namespace MechRent.Application
         }
 
     }
-  
+
 }

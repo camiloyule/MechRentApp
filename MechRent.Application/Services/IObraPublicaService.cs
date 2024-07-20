@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MechRent.Application.DTOs;
 
-namespace MechRent.Application
+namespace MechRent.Application.Services
 {
     public interface IObraPublicaService
     {
